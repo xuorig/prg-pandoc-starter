@@ -1,0 +1,21 @@
+\usepackage{framed}
+\usepackage{xcolor}
+\let\oldquote=\quote
+\let\endoldquote=\endquote
+\colorlet{quotecolor}{lightgray!15}
+
+\newenvironment{frshaded}{%
+
+\def\FrameCommand{\fboxrule=\FrameRule\fboxsep=\FrameSep \fcolorbox{quotecolor}{quotecolor}}%
+\MakeFramed {\FrameRestore}}%
+{\endMakeFramed}
+
+\renewenvironment{quote}{\begin{frshaded}\begin{oldquote}}{\end{oldquote}\end{frshaded}}
+
+\renewenvironment{Shaded}{\begin{shaded*}}{\end{shaded*}}
+
+\BeforeBeginEnvironment{quote}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{quote}{\end{minipage}\par\addvspace{\topskip}}
+
+\BeforeBeginEnvironment{Shaded}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{Shaded}{\end{minipage}\par\addvspace{\topskip}}

@@ -1,0 +1,13 @@
+---
+title:  'My Awesome Book'
+subtitle: 'Book Subtitle'
+toc-title: 'Table of Contents'
+author:
+- You
+keywords: [Some, Keywords]
+documentclass: article
+papersize: trade
+fontsize: 12
+fontfamily: helvet
+urlcolor: purple
+---

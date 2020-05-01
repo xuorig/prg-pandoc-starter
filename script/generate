@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Generating PDF book from markdown using Pandoc"
+
+files=$(find ./book -type f -name '*.md' | sort)
+
+pandoc \
+  $files \
+  -H ./pandoc/quotes.tex \
+  -o ./generated/book.pdf \
+  --metadata-file=./pandoc/metadata.yaml \
+  --highlight-style=./pandoc/pygments.theme \
+  --toc \
+  --toc-depth=2 \
+  --template=./pandoc/template.tex
+
+echo "Generating EPUB book from markdown using Pandoc"
+
+pandoc \
+  $files \
+  -o ./generated/book.epub \
+  --metadata-file=./pandoc/metadata.yaml \
+  --template=./pandoc/template.epub \
+  --toc \
+  --toc-depth=2 \
+  --css=./pandoc/epub.css
